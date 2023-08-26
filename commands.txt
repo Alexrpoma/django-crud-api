@@ -1,0 +1,21 @@
+PYTHON - DJANGO
+
+Environment commands:
+
+pip install virtualenv --> install virtualenv
+virtualenv --version   --> see the virtualenv version
+
+virtualenv venv        --> create a folder where we can activate virtual environment
+.\env\Scripts\activate --> activate virtual environment
+
+Inside of virtualenv install django (venv):
+pip install django
+
+Create a project:
+django-admin startproject myproject . --> create a project called "myproject" in the current folder.
+python manage.py runserver            --> start server (default port 8000). The manage.py was created after of execute django-admin startproject (name of project)
+python manage.py runserver 3000       --> start server on port 3000
+
+
+Create an application:
+python manage.py startapp myapp       --> create an application inside of project (myproject for example) called myapp. 
