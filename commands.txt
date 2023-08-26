@@ -11,11 +11,21 @@ virtualenv venv        --> create a folder where we can activate virtual environ
 Inside of virtualenv install django (venv):
 pip install django
 
-Create a project:
+Create a project with django manager (STARTPROJECT):
 django-admin startproject myproject . --> create a project called "myproject" in the current folder.
 python manage.py runserver            --> start server (default port 8000). The manage.py was created after of execute django-admin startproject (name of project)
 python manage.py runserver 3000       --> start server on port 3000
 
 
-Create an application:
-python manage.py startapp myapp       --> create an application inside of project (myproject for example) called myapp. 
+Create an application with django manager (STARTAPP):
+python manage.py startapp myapp       --> create an application inside of project (myproject for example) called myapp.
+
+DataBase with django manager:
+python manage.py makemigrations       --> verify is exist database updates
+python manage.py migrate              --> detect all database and create them
+
+Add app to project settings:
+For this project the example is:
+INSTALLED_APPS = [
+    'crud_web'
+]
