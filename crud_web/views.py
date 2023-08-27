@@ -21,5 +21,10 @@ def persons(request):
     return JsonResponse(persons_list, safe=False)
 
 
+def person(request, uuid):
+    return HttpResponse(f'<h3>person id = {uuid}</h3>')
+
+
 def address(request):
-    return HttpResponse('addresses')
+    address_list = list(Address.objects.values())
+    return JsonResponse(address_list, safe=False)
