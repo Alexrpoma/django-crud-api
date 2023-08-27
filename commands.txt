@@ -26,6 +26,6 @@ python manage.py migrate              --> detect all database and create them
 
 Add app to project settings:
 For this project the example is:
-INSTALLED_APPS = [
-    'crud_web'
-]
+    INSTALLED_APPS = [
+        'crud_web'
+    ]
