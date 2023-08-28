@@ -10,6 +10,9 @@ class Person(models.Model):
     email = models.CharField(max_length=20,  unique=True)
     password = models.CharField(max_length=20)
 
+    def __str__(self):
+        return f'(id={self.id} username={self.username} nickname={self.nickname} email={self.email})'
+
 
 class Address(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
@@ -19,3 +22,10 @@ class Address(models.Model):
     country = models.CharField(max_length=30)
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return (f'(id={self.id} '
+                f'house_number={self.house_number} '
+                f'street={self.street} '
+                f'city={self.city} '
+                f'country={self.country} '
+                f'person_id={self.person})')
