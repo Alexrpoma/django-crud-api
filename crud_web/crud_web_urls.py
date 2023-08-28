@@ -7,6 +7,7 @@ urlpatterns = [
     path('about', views.about_us),
     path('person', views.all_persons),
     path('person/<str:uuid>', views.get_person),
+    path('address/<str:uuid>', views.get_address),
     path('address', views.address),
     path('create', views.default_data)
 ]

@@ -31,6 +31,26 @@ def get_person(request, uuid):
     return JsonResponse(person_data, safe=False)
 
 
+def get_address(request, uuid):
+    address = get_object_or_404(Address, id=uuid)
+    person = get_object_or_404(Person, id=address.person.id)
+    person_data = {
+        'id': person.id,
+        'username': person.username,
+        'nickname': person.nickname,
+        'email': person.email
+    }
+    address_data = {
+        'id': address.id,
+        'house_number': address.house_number,
+        'street': address.street,
+        'city': address.city,
+        'country': address.country,
+        'person': person_data
+    }
+    return JsonResponse(address_data, safe=False)
+
+
 def address(request):
     address_list = list(Address.objects.values())
     return JsonResponse(address_list, safe=False)
