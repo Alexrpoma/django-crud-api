@@ -6,17 +6,20 @@
   <title>Persons</title>
 </head>
 <body>
-  <h2>Persons</h2>
-  {% for person in persons %}
-    <div>
-      <ul>
-        <li>
-          <h4>Username: {{person.username}}</h4>
-          <h4>Nickname: {{person.nickname}}</h4>
-          <h4>Email:    {{person.email}}</h4>
-        </li>
-      </ul>
-    </div>
-  {% endfor %}
+  {% extends 'navbar.html' %}
+  {% block content %}
+    <h2>Persons</h2>
+    {% for person in persons %}
+      <div>
+        <ul>
+          <li>
+            <h4>Username: {{person.username}}</h4>
+            <h4>Nickname: {{person.nickname}}</h4>
+            <h4>Email:    {{person.email}}</h4>
+          </li>
+        </ul>
+      </div>
+    {% endfor %}
+  {% endblock %}
 </body>
 </html>

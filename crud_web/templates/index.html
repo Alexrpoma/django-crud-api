@@ -6,7 +6,10 @@
   <title>Django - crud</title>
 </head>
 <body>
-  <h1> Welcome to Django!</h1>
-  <p>{{ message }}</p>
+  {% extends 'navbar.html' %} <!--Inheritance from navbar-->
+  {% block content %}
+    <h1> Welcome to Django!</h1>
+    <p>{{ message }}</p>
+  {% endblock %}
 </body>
 </html>
