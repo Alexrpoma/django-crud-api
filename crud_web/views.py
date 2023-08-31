@@ -21,11 +21,20 @@ def all_persons(request):
 
 def get_person(request, uuid):
     person = get_object_or_404(Person, id=uuid)
+    address = get_object_or_404(Address, id=person.address.id)
+    address_data = {
+        'id': address.id,
+        'house_number': address.house_number,
+        'street': address.street,
+        'city': address.city,
+        'country': address.country
+    }
     person_data = {
         'id': person.id,
         'username': person.username,
         'nickname': person.nickname,
-        'email': person.email
+        'email': person.email,
+        'address': address_data
     }
     # person_serializable = serializers.serialize('json', person) --> option without mapping
     return JsonResponse(person_data, safe=False)
@@ -33,20 +42,12 @@ def get_person(request, uuid):
 
 def get_address(request, uuid):
     address = get_object_or_404(Address, id=uuid)
-    person = get_object_or_404(Person, id=address.person.id)
-    person_data = {
-        'id': person.id,
-        'username': person.username,
-        'nickname': person.nickname,
-        'email': person.email
-    }
     address_data = {
         'id': address.id,
         'house_number': address.house_number,
         'street': address.street,
         'city': address.city,
-        'country': address.country,
-        'person': person_data
+        'country': address.country
     }
     return JsonResponse(address_data, safe=False)
 
