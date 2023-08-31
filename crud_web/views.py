@@ -7,7 +7,10 @@ from django.core import serializers
 
 # Create your views here.
 def home_page(request):
-    return render(request, 'index.html')
+    message = 'This is the best django course!!'
+    return render(request, 'index.html', {
+        'message': message
+    })
 
 
 def about_us(request):
