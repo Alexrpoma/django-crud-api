@@ -7,11 +7,11 @@ from django.core import serializers
 
 # Create your views here.
 def home_page(request):
-    return HttpResponse("<h1>Welcome to Django!</h1>")
+    return render(request, 'index.html')
 
 
 def about_us(request):
-    return HttpResponse("<h2>About Us</h2>")
+    return render(request, 'about.html')
 
 
 def all_persons(request):
