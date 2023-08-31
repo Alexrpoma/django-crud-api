@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+
+from crud_web.register import Register
 from .models import Address, Person
 from django.shortcuts import get_object_or_404
 from django.core import serializers
@@ -60,9 +62,16 @@ def get_address(request, uuid):
 def address(request):
     address_list = list(Address.objects.values())
     address_objs = Address.objects.all()
+    print(address_objs)
     return render(request, 'address.html', {
         'address_str': address_list,
         'address_objs': address_objs
+    })
+
+def register(request):
+    print(Register)
+    return render(request, 'register.html', {
+        'register_form': Register
     })
 
 
