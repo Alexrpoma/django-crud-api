@@ -7,8 +7,12 @@
 </head>
 <body>
   {% extends 'navbar.html' %} <!--Inheritance from navbar-->
+  {% load static %}
   {% block content %}
-    <h1> Welcome to Django!</h1>
+  <h1> 
+    Welcome to Django!
+  </h1>
+  <img src="{% static 'logo-python-django.png' %}" alt="django-logo" width="10%"/>
     <p>{{ message }}</p>
   {% endblock %}
 </body>
