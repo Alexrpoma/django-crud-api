@@ -15,8 +15,7 @@ class Address(models.Model):
                 f'house_number={self.house_number} '
                 f'street={self.street} '
                 f'city={self.city} '
-                f'country={self.country} '
-                f'person_id={self.person})')
+                f'country={self.country})')
     
 
 class Person(models.Model):

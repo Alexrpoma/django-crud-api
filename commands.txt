@@ -29,3 +29,12 @@ For this project the example is:
     INSTALLED_APPS = [
         'crud_web'
     ]
+
+
+Create a user for the django admin page:
+(venv) --> python manage.py createsuperuser
+example:
+    username: alex
+    email: alex@net.com
+    passoword: alex
+whit this we can access to admin page of django
