@@ -18,8 +18,10 @@ def about_us(request):
 
 
 def all_persons(request):
-    persons_list = list(Person.objects.values())
-    return JsonResponse(persons_list, safe=False)
+    person_obj = Person.objects.all()
+    return render(request, 'person.html', {
+        'persons': person_obj
+    })
 
 
 def get_person(request, uuid):
