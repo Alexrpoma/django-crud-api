@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Address</title>
+</head>
+<body>
+  <h3>Address list:</h3>
+
+  {% for address in address_objs %}
+    <div>
+      <ul>
+        <li>
+          <h4>House number: {{address.house_number}}</h4>
+          <h4>Street:       {{address.street}}</h4>
+          <h4>City:         {{address.city}}</h4>
+          <h4>Country:      {{address.country}}</h4>
+        </li>
+      </ul>
+    </div>
+  {% endfor %}
+
+  <h4>Data as strings:</h4>
+  <p>{{address_str}}</p>
+  <h4>Data as object:</h4>
+  <p>{{address_objs}}</p>
+</body>
+</html>

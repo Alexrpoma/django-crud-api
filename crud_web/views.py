@@ -57,7 +57,11 @@ def get_address(request, uuid):
 
 def address(request):
     address_list = list(Address.objects.values())
-    return JsonResponse(address_list, safe=False)
+    address_objs = Address.objects.all()
+    return render(request, 'address.html', {
+        'address_str': address_list,
+        'address_objs': address_objs
+    })
 
 
 def default_data(request):
