@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 
-from crud_web.register import Register
+from crud_web.register import PersonRegister, AddressRegister
 from .models import Address, Person
 from django.shortcuts import get_object_or_404
 from django.core import serializers
@@ -62,17 +62,34 @@ def get_address(request, uuid):
 def address(request):
     address_list = list(Address.objects.values())
     address_objs = Address.objects.all()
-    print(address_objs)
     return render(request, 'address.html', {
         'address_str': address_list,
         'address_objs': address_objs
     })
 
 def register(request):
-    print(Register)
-    return render(request, 'register.html', {
-        'register_form': Register
-    })
+    if request.method == 'GET':
+        return render(request, 'register.html', {
+            'person_register': PersonRegister,
+            'address_register': AddressRegister
+        })
+    elif request.method == 'POST':
+        print(request.POST)
+        person_address = Address.objects.create(
+            house_number=request.POST['house_number'],
+            street=request.POST['street'],
+            city=request.POST['city'],
+            country=request.POST['country']
+        )
+        Person.objects.create(
+            username=request.POST['username'],
+            nickname=request.POST['nickname'],
+            email=request.POST['email'],
+            password=request.POST['password'],
+            address=person_address
+            )
+        return redirect('/person')
+
 
 
 def default_data(request):

@@ -9,7 +9,12 @@
   {% extends 'navbar.html' %}
   {% block content %}
     <h1>Register</h1>
-    {{register_form}}
+    <form method="POST">
+      {% csrf_token %}
+      <div>{{person_register}}</div>
+      <div>{{address_register}}</div>
+      <button type="submit">Sign up</button>
+    </form>
   {% endblock %}
 </body>
 </html>
